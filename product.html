@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAUSEN | Products — Choose Your Collection</title>
+<meta name="description" content="Browse Hausen Super Heavy PVC Panel collections — Wood, Marble, Patterns, and Solid finishes.">
+<link rel="stylesheet" href="../css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  .page-hero { padding: 160px 60px 80px; background: var(--dark); position: relative; overflow: hidden; }
+  .page-hero::after { content: 'PRODUCTS'; position: absolute; right: 60px; bottom: -20px; font-family: 'Cormorant Garamond', serif; font-size: clamp(80px,12vw,160px); font-weight: 600; color: rgba(160,120,48,0.05); letter-spacing: 20px; line-height: 1; user-select: none; }
+  .page-hero-tag { font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 18px; }
+  .page-hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px,6vw,72px); font-weight: 300; color: var(--cream); line-height: 1.1; max-width: 700px; }
+  .page-hero-title em { font-style: italic; color: var(--gold); }
+  .page-hero-desc { font-size: 15px; line-height: 1.8; color: var(--text-light); font-weight: 300; margin-top: 24px; max-width: 520px; }
+
+  .categories-section { background: var(--dark-2); padding: 80px 60px 120px; }
+  .cat-intro { text-align: center; margin-bottom: 60px; }
+  .cat-intro-tag { font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 14px; }
+  .cat-intro-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px,4vw,50px); font-weight: 300; color: var(--cream); }
+  .cat-intro-title em { font-style: italic; color: var(--gold); }
+  .cat-intro-line { width: 60px; height: 1px; background: var(--gold); margin: 20px auto 0; }
+
+  .categories-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto; }
+
+  .cat-card {
+    display: block; text-decoration: none;
+    background: #fff; overflow: hidden;
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .cat-card:hover { transform: translateY(-8px); box-shadow: 0 24px 70px rgba(160,120,48,0.18); }
+
+  .cat-card-visual {
+    aspect-ratio: 16/9;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .cat-card-bg-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(60px,8vw,110px);
+    font-weight: 300; letter-spacing: 6px;
+    opacity: 0.18; position: absolute;
+    transition: transform 0.6s ease, opacity 0.4s;
+    user-select: none;
+  }
+  .cat-card:hover .cat-card-bg-text { transform: scale(1.08); opacity: 0.28; }
+  .cat-card-num {
+    position: absolute; top: 20px; right: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px; font-weight: 300;
+    color: rgba(255,255,255,0.15); line-height: 1;
+  }
+  .cat-card-badge {
+    position: absolute; top: 20px; left: 20px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff; font-size: 8px; letter-spacing: 3px;
+    text-transform: uppercase; padding: 5px 12px;
+    backdrop-filter: blur(4px);
+  }
+  .cat-card-arrow {
+    position: absolute; bottom: 20px; right: 20px;
+    width: 40px; height: 40px;
+    border: 1px solid rgba(255,255,255,0.4);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 18px;
+    transition: all 0.3s;
+    opacity: 0; transform: translateX(-6px);
+  }
+  .cat-card:hover .cat-card-arrow { opacity: 1; transform: translateX(0); background: rgba(255,255,255,0.15); }
+
+  .cat-card-body { padding: 26px 30px 32px; }
+  .cat-card-label { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
+  .cat-card-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--cream); margin-bottom: 10px; line-height: 1.2; }
+  .cat-card-desc { font-size: 13px; line-height: 1.75; color: var(--text-muted); font-weight: 300; margin-bottom: 20px; }
+  .cat-card-count { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); display: flex; align-items: center; gap: 10px; }
+  .cat-card-count::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+  .cat-card-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 16px;
+    font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); border-bottom: 1px solid rgba(160,120,48,0.3);
+    padding-bottom: 3px; transition: border-color 0.3s, gap 0.3s;
+  }
+  .cat-card:hover .cat-card-cta { gap: 14px; border-color: var(--gold); }
+
+  /* Wood */
+  .cat-card-wood .cat-card-visual { background: linear-gradient(135deg, #9a7850 0%, #c8a060 50%, #7a5830 100%); }
+  .cat-card-wood .cat-card-bg-text { color: rgba(255,220,160,1); }
+  /* Marble */
+  .cat-card-marble .cat-card-visual { background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 50%, #383838 100%); }
+  .cat-card-marble .cat-card-bg-text { color: rgba(184,151,90,1); }
+  /* Pattern */
+  .cat-card-pattern .cat-card-visual { background: linear-gradient(135deg, #c09070 0%, #d4a888 50%, #b08870 100%); }
+  .cat-card-pattern .cat-card-bg-text { color: rgba(255,220,170,1); }
+  /* Solid */
+  .cat-card-solid .cat-card-visual { background: linear-gradient(135deg, #6a7070 0%, #f5f4f2 50%, #a0b098 100%); }
+  .cat-card-solid .cat-card-bg-text { color: rgba(100,100,100,0.4); }
+
+  @media (max-width: 900px) {
+    .categories-grid { grid-template-columns: 1fr; max-width: 500px; }
+    .categories-section { padding: 50px 30px 80px; }
+    .page-hero { padding: 130px 30px 70px; }
+  }
+  @media (max-width: 600px) {
+    .page-hero { padding: 120px 20px 60px; }
+    .categories-section { padding: 40px 20px 70px; }
+    .cat-card-body { padding: 20px 22px 26px; }
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo"><span>H</span>AUSEN</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="product.html">Product</a></li>
+      <li><a href="about.html" style="color:var(--gold);">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Get Quote</a>
+  </nav>
+
+<section class="page-hero">
+  <span class="page-hero-tag">Our Collections</span>
+  <h1 class="page-hero-title">Explore by <em>Category</em></h1>
+  <p class="page-hero-desc">Four distinct collections — each crafted to a different aesthetic. Select a category to browse the full range of designs within it.</p>
+</section>
+
+  <!-- <div class="specs-strip">
+    <div class="spec-item"><span class="spec-val">27+</span><span class="spec-key">Total Designs</span></div>
+    <div class="spec-divider"></div>
+    <div class="spec-item"><span class="spec-val">4</span><span class="spec-key">Collections</span></div>
+    <div class="spec-divider"></div>
+    <div class="spec-item"><span class="spec-val">5 mm</span><span class="spec-key">Thickness</span></div>
+    <div class="spec-divider"></div>
+    <div class="spec-item"><span class="spec-val">3050 mm</span><span class="spec-key">Panel Length</span></div>
+    <div class="spec-divider"></div>
+    <div class="spec-item"><span class="spec-val">23 kg</span><span class="spec-key">Per Box</span></div>
+  </div> -->
+
+<section class="categories-section">
+  <div class="cat-intro reveal">
+    <span class="cat-intro-tag">Product Collections</span>
+    <h2 class="cat-intro-title">Choose Your <em>Collection</em></h2>
+    <div class="cat-intro-line"></div>
+  </div>
+
+  
+  <!-- Wood -->
+  <div class="categories-grid">
+    <a href="flute.html" class="cat-card cat-card-wood reveal">
+      <div class="cat-card-visual">
+        <div class="cat-card-bg-text">Flute</div>
+        <div class="cat-card-num">01</div>
+        <span class="cat-card-badge">Collection 01</span>
+        <div class="cat-card-arrow">→</div>
+      </div>
+      <div class="cat-card-body">
+        <span class="cat-card-label">Flute</span>
+        <div class="cat-card-title">Flute<br>Panels</div>
+        <p class="cat-card-desc">This is a premium catalog page showcasing Hausen Flute decorative wall and ceiling panels designed to add a luxury look to interiors. It features elegant fluted panels with marble and textured finishes, perfect for modernizing contemporary living spaces.</p>
+        <div class="cat-card-count">39 Designs Available</div>
+        <div class="cat-card-cta">Browse Collection →</div>
+      </div>
+    </a>
+
+    <!-- Marble -->
+    <a href="fluted_pvc.html" class="cat-card cat-card-marble reveal">
+      <div class="cat-card-visual">
+        <div class="cat-card-bg-text">Fluted</div>
+        <div class="cat-card-num">02</div>
+        <span class="cat-card-badge">Collection 02</span>
+        <div class="cat-card-arrow">→</div>
+      </div>
+      <div class="cat-card-body">
+        <span class="cat-card-label">Fluted &amp; Panel</span>
+        <div class="cat-card-title">Designer<br>&amp; Fluted Panels</div>
+        <p class="cat-card-desc">This catalog page highlights Hausen PVC Fluted Panels, blending high-end marble and wooden textures with everyday practicality. It offers a premium, modern look for accent walls and includes detailed product specifications like dimensions and area coverage for easy planning.</p>
+        <div class="cat-card-count"> 23 Designs Available</div>
+        <div class="cat-card-cta">Browse Collection →</div>
+      </div>
+    </a>
+
+    <!-- Pattern -->
+    <a href="hausenwoodenflooring.html" class="cat-card cat-card-pattern reveal">
+      <div class="cat-card-visual">
+        <div class="cat-card-bg-text">Wood</div>
+        <div class="cat-card-num">03</div>
+        <span class="cat-card-badge">Collection 03</span>
+        <div class="cat-card-arrow">→</div>
+      </div>
+      <div class="cat-card-body">
+        <span class="cat-card-label">wooden &amp; Flooring </span>
+        <div class="cat-card-title">Premium<br>Wood Flooring</div>
+        <p class="cat-card-desc">Elegant wooden flooring crafted for modern luxury interiors and timeless spaces.</p>
+        <div class="cat-card-count">16 Designs Available</div>
+        <div class="cat-card-cta">Browse Collection →</div>
+      </div>
+    </a>
+
+    <!-- Solid -->
+    <a href="soffitpanels.html" class="cat-card cat-card-solid reveal">
+      <div class="cat-card-visual">
+        <div class="cat-card-bg-text">SOFFIT</div>
+        <div class="cat-card-num">04</div>
+        <span class="cat-card-badge">Collection 04</span>
+        <div class="cat-card-arrow">→</div>
+      </div>
+      <div class="cat-card-body">
+        <span class="cat-card-label">Soffit &amp; Panels</span>
+        <div class="cat-card-title">Modern<br>&amp; Soffit Panels</div>
+        <p class="cat-card-desc">Premium soffit panel solutions with stylish and durable finishes.</p>
+        <div class="cat-card-count">9 Designs Available</div>
+        <div class="cat-card-cta">Browse Collection →</div>
+      </div>
+    </a>
+
+        <!-- Solid -->
+        <a href="superheavypvc.html" class="cat-card cat-card-solid reveal">
+          <div class="cat-card-visual">
+            <div class="cat-card-bg-text">PVC</div>
+            <div class="cat-card-num">05</div>
+            <span class="cat-card-badge">Collection 05</span>
+            <div class="cat-card-arrow">→</div>
+          </div>
+          <div class="cat-card-body">
+            <span class="cat-card-label">Super Heavy &amp; PVC</span>
+            <div class="cat-card-title">Premium<br>&amp; PVC Collections</div>
+            <p class="cat-card-desc"> Durable super heavy PVC panels crafted for stylish, modern, and long-lasting interiors.</p>
+            <div class="cat-card-count">15 Designs Available</div>
+            <div class="cat-card-cta">Browse Collection →</div>
+          </div>
+        </a>
+
+
+        <a href="uvmarble.html" class="cat-card cat-card-solid reveal">
+          <div class="cat-card-visual">
+            <div class="cat-card-bg-text">UV</div>
+            <div class="cat-card-num">06</div>
+            <span class="cat-card-badge">Collection 06</span>
+            <div class="cat-card-arrow">→</div>
+          </div>
+          <div class="cat-card-body">
+            <span class="cat-card-label">UV Marble &amp; Sheet</span>
+            <div class="cat-card-title">Luxury UV<br>&amp; Marble Sheet</div>
+            <p class="cat-card-desc"> High-gloss UV marble sheets crafted for luxurious interiors and elegant wall designs.</p>
+            <div class="cat-card-count">10 Designs Available</div>
+            <div class="cat-card-cta">Browse Collection →</div>
+          </div>
+        </a>
+
+        <!-- Solid -->
+        <a href="wallsheetmatchinglouvers.html" class="cat-card cat-card-solid reveal">
+          <div class="cat-card-visual">
+            <div class="cat-card-bg-text">LOUVERS</div>
+            <div class="cat-card-num">07</div>
+            <span class="cat-card-badge">Collection 07</span>
+            <div class="cat-card-arrow">→</div>
+          </div>
+          <div class="cat-card-body">
+            <span class="cat-card-label">Matching &amp; Louvers</span>
+            <div class="cat-card-title">Wall Sheet <br>&amp; Matching Louvers</div>
+            <p class="cat-card-desc"> Premium matching louvers designed to complement modern wall sheets with elegant aesthetics.</p>
+            <div class="cat-card-count">33 Designs Available</div>
+            <div class="cat-card-cta">Browse Collection →</div>
+          </div>
+        </a>
+
+            <!-- Solid -->
+    <a href="wallsheets.html" class="cat-card cat-card-solid reveal">
+      <div class="cat-card-visual">
+        <div class="cat-card-bg-text">WALL</div>
+        <div class="cat-card-num">08</div>
+        <span class="cat-card-badge">Collection 08</span>
+        <div class="cat-card-arrow">→</div>
+      </div>
+      <div class="cat-card-body">
+        <span class="cat-card-label">Wall &amp; sheets</span>
+        <div class="cat-card-title">Premiumbr>&amp; Wall Sheets</div>
+        <p class="cat-card-desc">Elegant wall sheets crafted for modern interiors with premium texture and stylish finish.</p>
+        <div class="cat-card-count">58 Designs Available</div>
+        <div class="cat-card-cta">Browse Collection →</div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">HAUSEN</div>
+  <ul class="footer-links">
+    <li><a href="product.html">Products</a></li>
+    <li><a href="index.html#catalog">Catalog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Hausen. Super Heavy PVC Panels. All rights reserved.</div>
+</footer>
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+<script>
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), {threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  window.addEventListener('scroll', () => document.querySelector('.scroll-top').classList.toggle('show', window.scrollY > 300));
+</script>
+</body>
+</html>

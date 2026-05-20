@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | HAUSEN Super Heavy PVC Panels</title>
+<meta name="description" content="Get in touch with Hausen for premium Super Heavy PVC wall panels. Request a quote, order samples, or speak with our team.">
+<link rel="stylesheet" href="../css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ── CONTACT PAGE STYLES ── */
+  .contact-hero {
+    min-height: 60vh;
+    background: var(--dark);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 160px 60px 80px;
+  }
+  .contact-hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 45%; height: 100%;
+    background: linear-gradient(135deg, #fdf6ec 0%, #f5e8d0 40%, #fdf6ec 100%);
+    clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .contact-hero-content { position: relative; z-index: 2; max-width: 560px; }
+  .contact-hero-tag {
+    display: inline-block; border: 1px solid var(--gold);
+    color: var(--gold); font-size: 9px; letter-spacing: 4px;
+    text-transform: uppercase; padding: 7px 20px; margin-bottom: 30px;
+  }
+  .contact-hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(44px, 5.5vw, 72px);
+    font-weight: 300; line-height: 1.05;
+    color: var(--cream); margin-bottom: 24px;
+  }
+  .contact-hero-title em { font-style: italic; color: var(--gold); display: block; }
+  .contact-hero-desc {
+    font-size: 15px; line-height: 1.9;
+    color: var(--text-light); font-weight: 300; max-width: 440px;
+  }
+
+  /* ── MAIN CONTACT ── */
+  .contact-main {
+    background: var(--dark-2);
+    padding: 100px 60px;
+  }
+  .contact-main-inner {
+    display: grid; grid-template-columns: 1fr 1.2fr;
+    gap: 80px; align-items: start;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  /* Left info */
+  .contact-info-tag {
+    font-size: 9px; letter-spacing: 5px; text-transform: uppercase;
+    color: var(--gold); display: block; margin-bottom: 20px;
+  }
+  .contact-info-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 3.5vw, 44px);
+    font-weight: 300; color: var(--cream);
+    line-height: 1.15; margin-bottom: 20px;
+  }
+  .contact-info-title em { font-style: italic; color: var(--gold); }
+  .contact-info-desc {
+    font-size: 14px; line-height: 1.9;
+    color: var(--text-light); font-weight: 300;
+    margin-bottom: 40px;
+  }
+  .info-card {
+    display: flex; gap: 18px; align-items: flex-start;
+    margin-bottom: 28px; padding: 20px 24px;
+    background: var(--dark);
+    border: 1px solid rgba(184,151,90,0.1);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .info-card:hover { border-color: var(--gold); transform: translateX(6px); }
+  .info-card-icon {
+    width: 44px; height: 44px;
+    border: 1px solid var(--gold); display: flex;
+    align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 16px; color: var(--gold);
+  }
+  .info-card-label {
+    font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); display: block; margin-bottom: 6px; font-weight: 500;
+  }
+  .info-card-value {
+    font-size: 14px; color: var(--text-light); line-height: 1.6; font-weight: 300;
+  }
+  .info-card-value a { color: var(--text-light); text-decoration: none; transition: color 0.3s; }
+  .info-card-value a:hover { color: var(--gold); }
+
+  .social-row { display: flex; gap: 12px; margin-top: 36px; }
+  .social-btn {
+    width: 42px; height: 42px; border: 1px solid rgba(184,151,90,0.2);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-muted); font-size: 14px;
+    text-decoration: none; transition: all 0.3s;
+  }
+  .social-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(160,120,48,0.06); }
+
+  /* Right form */
+  .contact-form-wrap {
+    background: var(--dark);
+    padding: 48px 44px;
+    border: 1px solid rgba(184,151,90,0.1);
+  }
+  .form-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300; color: var(--cream);
+    margin-bottom: 8px;
+  }
+  .form-subheading {
+    font-size: 13px; color: var(--text-muted); font-weight: 300;
+    margin-bottom: 32px;
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 18px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-label {
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .form-input, .form-textarea, .form-select {
+    background: var(--dark-2);
+    border: 1px solid rgba(184,151,90,0.15);
+    color: var(--cream); padding: 14px 18px;
+    font-family: 'Jost', sans-serif; font-size: 14px;
+    font-weight: 300; outline: none;
+    transition: border-color 0.3s;
+  }
+  .form-select { appearance: none; cursor: pointer; }
+  .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: var(--gold); }
+  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .form-submit {
+    background: var(--gold); color: #ffffff;
+    padding: 16px 40px; font-family: 'Jost', sans-serif;
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    font-weight: 600; cursor: pointer; border: none;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  /* ── QUICK ACTIONS ── */
+  .quick-section {
+    background: var(--dark);
+    padding: 80px 60px;
+  }
+  .quick-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; max-width: 1200px; margin: 60px auto 0;
+  }
+  .quick-card {
+    background: var(--dark-3);
+    padding: 48px 36px;
+    border-top: 3px solid transparent;
+    transition: border-color 0.3s, transform 0.3s;
+    text-align: center;
+  }
+  .quick-card:hover { border-color: var(--gold); transform: translateY(-6px); }
+  .quick-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px; color: var(--gold); font-weight: 300;
+    line-height: 1; margin-bottom: 20px;
+  }
+  .quick-title {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 12px; font-weight: 500;
+  }
+  .quick-desc {
+    font-size: 13px; line-height: 1.8;
+    color: var(--text-muted); font-weight: 300;
+    margin-bottom: 24px;
+  }
+
+  /* ── MAP SECTION ── */
+  .map-section {
+    background: var(--dark-3);
+    padding: 0;
+    position: relative;
+  }
+  .map-placeholder {
+    width: 100%; height: 400px;
+    background: var(--dark-2);
+    display: flex; align-items: center; justify-content: center;
+    border-top: 3px solid var(--gold);
+  }
+  .map-text {
+    text-align: center;
+  }
+  .map-text-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 300; color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .map-text-sub {
+    font-size: 13px; color: var(--text-muted); font-weight: 300;
+  }
+
+  /* ── CTA ── */
+  .contact-cta {
+    background: var(--dark-2);
+    padding: 80px 60px;
+    text-align: center;
+  }
+  .contact-cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4.5vw, 52px);
+    font-weight: 300; color: var(--cream);
+    line-height: 1.1; margin-bottom: 20px;
+  }
+  .contact-cta-title em { font-style: italic; color: var(--gold); }
+  .contact-cta-desc {
+    font-size: 15px; color: var(--text-muted); font-weight: 300;
+    margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto;
+    line-height: 1.8;
+  }
+  .cta-btns { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .contact-hero { padding: 140px 30px 70px; }
+    .contact-hero::before { display: none; }
+    .contact-main { padding: 60px 30px; }
+    .contact-main-inner { grid-template-columns: 1fr; gap: 50px; }
+    .quick-grid { grid-template-columns: 1fr; gap: 16px; }
+    .quick-section { padding: 60px 30px; }
+    .contact-cta { padding: 60px 30px; }
+  }
+  @media (max-width: 768px) {
+    .contact-hero { padding: 120px 20px 50px; }
+    .contact-main { padding: 50px 20px; }
+    .contact-form-wrap { padding: 30px 20px; }
+    .form-row { grid-template-columns: 1fr; }
+    .quick-section { padding: 50px 20px; }
+    .quick-grid { grid-template-columns: 1fr; }
+    .contact-cta { padding: 50px 20px; }
+    .map-placeholder { height: 280px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span>H</span>AUSEN</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="product.html">Product</a></li>
+    <li><a href="about.html" style="color:var(--gold);">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="contact-hero">
+  <div class="contact-hero-content reveal">
+    <div class="contact-hero-tag">Get In Touch</div>
+    <h1 class="contact-hero-title">
+      Let's Build<br>
+      <em>Something Beautiful</em>
+    </h1>
+    <p class="contact-hero-desc">
+      Whether you're an architect, builder, or homeowner — our team is ready to
+      help you find the perfect Hausen panels for your project. Reach out today.
+    </p>
+
+    
+  </div>
+</section>
+
+<style>
+  /* HERO SECTION */
+.contact-hero{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+/* Background Video */
+.contact-hero-video{
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Overlay */
+.contact-hero-overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 2;
+}
+
+/* Content */
+.contact-hero-content{
+  position: relative;
+  z-index: 3;
+
+  max-width: 900px;
+  padding: 20px;
+}
+
+/* KEEP EXISTING FONTS/STYLING */
+.contact-hero-tag,
+.contact-hero-title,
+.contact-hero-desc{
+  text-align: center;
+}
+</style>
+
+<script src="/js/form.js"></script>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+
+  <div class="contact-inner">
+
+    <!-- LEFT SIDE -->
+    <div class="reveal">
+
+      <h2 class="contact-title">
+        Get in <em>Touch</em>
+      </h2>
+
+      <p class="contact-desc">
+        Request a sample, ask for a quote, or enquire about our full product range.
+        Our team is ready to help you find the perfect panel for your project.
+      </p>
+
+      <!-- QUICK BUTTONS -->
+      <div class="quick-btns">
+
+        <div class="quick-btns-row">
+
+          <a href="mailto:info@hausen.in"
+             class="quick-btn quick-btn-outline">
+             ✉ EMAIL ENQUIRY
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- EMAIL -->
+      <div class="contact-info-item">
+
+        <div class="contact-icon">✉</div>
+
+        <div class="contact-info-text">
+          <span class="contact-info-label">Email</span>
+          help@hausen.co.in
+        </div>
+
+      </div>
+
+      <!-- SHOWROOM -->
+      <div class="contact-info-item">
+
+        <div class="contact-icon">◈</div>
+
+        <div class="contact-info-text">
+          <span class="contact-info-label">Showroom</span>
+          By appointment — contact us for address
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE FORM -->
+    <div class="reveal">
+
+      <div class="contact-form">
+
+        <!-- NAME + PHONE -->
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label class="form-label">
+              Your Name
+            </label>
+
+            <input type="text"
+                   class="form-input"
+                   id="name"
+                   placeholder="Full name">
+
+          </div>
+
+          <div class="form-group">
+
+            <label class="form-label">
+              Phone Number
+            </label>
+
+            <input type="tel"
+                   class="form-input"
+                   id="phone"
+                   placeholder="+91 98765 43210">
+
+          </div>
+
+        </div>
+
+        <!-- EMAIL -->
+        <div class="form-group">
+
+          <label class="form-label">
+            Email Address
+          </label>
+
+          <input type="email"
+                 class="form-input"
+                 id="email"
+                 placeholder="you@example.com">
+
+        </div>
+
+        <!-- PRODUCT -->
+        <div class="form-group">
+
+          <label class="form-label">
+            Product Interest
+          </label>
+
+          <input type="text"
+                 class="form-input"
+                 id="product"
+                 placeholder="e.g. PP1012 Black Gold">
+
+        </div>
+
+        <!-- MESSAGE -->
+        <div class="form-group">
+
+          <label class="form-label">
+            Message
+          </label>
+
+          <textarea class="form-textarea"
+                    id="message"
+                    placeholder="Tell us about your project, area in sq ft, or any questions..."></textarea>
+
+        </div>
+
+        <!-- BUTTON -->
+        <button type="button"
+                class="btn-primary"
+                style="width:100%;padding:16px;color:#ffffff;"
+                onclick="sendEmail()">
+
+          Send Enquiry
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- QUICK ACTIONS -->
+</section class="ck-section">
+  <div class="section-header">
+    <span class="section-tag">How Can We Help?</span>
+    <h2 class="section-title">Quick <em>Actions</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="quick-grid">
+    <div class="quick-card reveal">
+      <div class="quick-icon">◈</div>
+      <div class="quick-title">Request a Quote</div>
+      <p class="quick-desc">
+        Share your project details and panel preferences — we'll send a
+        detailed quotation within 24 hours.
+      </p>
+      <a href="mailto:sales@hausen.in?subject=Quote Request" class="btn-outline">Get Quote</a>
+    </div>
+    <div class="quick-card reveal">
+      <div class="quick-icon">◇</div>
+      <div class="quick-title">Order Samples</div>
+      <p class="quick-desc">
+        Experience Hausen quality first-hand. Order sample panels in any
+        of our 15 premium finishes.
+      </p>
+      <a href="mailto:sales@hausen.in?subject=Sample Order" class="btn-outline">Order Now</a>
+    </div>
+    <div class="quick-card reveal">
+      <div class="quick-icon">◉</div>
+      <div class="quick-title">Become a Dealer</div>
+      <p class="quick-desc">
+        Join our growing network of authorized dealers across India and
+        offer Hausen quality to your customers.
+      </p>
+      <a href="mailto:info@hausen.in?subject=Dealer Enquiry" class="btn-outline">Apply Now</a>
+    </div>
+  </div>
+</section> -->
+
+
+
+<!-- CTA -->
+<section class="contact-cta">
+  <div class="contact-hero-tag" style="margin:0 auto 30px; display:table;">Let's Connect</div>
+  <h2 class="contact-cta-title reveal">
+    Transform Your Walls<br>
+    <em>With Hausen</em>
+  </h2>
+  <p class="contact-cta-desc">
+    Premium Super Heavy PVC panels — engineered for luxury,
+    built to last. Start your project today.
+  </p>
+  <div class="cta-btns reveal">
+    <a href="product.html" class="btn-primary">Browse Products</a>
+    <a href="about.html" class="btn-outline">About Hausen</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span style="font-weight:600;">H</span>AUSEN</div>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="product.html">Products</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 Hausen. All rights reserved.</p>
+</footer>
+
+<!-- SCROLL TOP -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Scroll top button
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('scrollTop');
+    btn.classList.toggle('show', window.scrollY > 400);
+  });
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Message Sent ✓';
+    btn.style.background = '#2d8a4e';
+    setTimeout(() => {
+      btn.textContent = 'Send Message';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+
+
+
+</body>
+</html>
