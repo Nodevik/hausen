@@ -4,16 +4,25 @@
     padding: 0;
   }
   
+  html {
+    overflow-x: hidden;
+  }
+
   body {
     background: #fff;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
   
   .cont {
     position: relative;
     overflow: hidden;
+    clip-path: inset(0);
     height: 100vh;
     padding: 80px 70px;
+    transform: translateZ(0);
+    max-width: 100%;
   }
   .cont__inner {
     position: relative;
@@ -374,4 +383,40 @@
   .icon-link--twitter {
     left: auto;
     right: 5px;
+  }
+
+  @media (max-width: 1024px) {
+    .cont {
+      padding: 50px 40px;
+    }
+    .el__bg {
+      width: calc(100vw - 80px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cont {
+      padding: 30px 20px;
+    }
+    .el__bg {
+      width: calc(100vw - 40px);
+    }
+    .el__heading {
+      font-size: 13px;
+    }
+    .el__text {
+      font-size: 26px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cont {
+      padding: 20px 12px;
+    }
+    .el__bg {
+      width: calc(100vw - 24px);
+    }
+    .el__heading {
+      font-size: 11px;
+    }
   }
