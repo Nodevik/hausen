@@ -110,8 +110,10 @@
     .cat-card-body { padding: 20px 22px 26px; }
   }
 </style>
+<link rel="stylesheet" href="/css/cursor.css">
 </head>
 <body>
+<div id="cursor-dot"></div><div id="cursor-ring"></div>
 
   <nav>
     <a href="index.html" class="nav-logo"><span>H</span>AUSEN</a>
@@ -306,5 +308,6 @@
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   window.addEventListener('scroll', () => document.querySelector('.scroll-top').classList.toggle('show', window.scrollY > 300));
 </script>
+<script src="/js/cursor.js"></script>
 </body>
 </html>
