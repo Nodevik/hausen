@@ -394,28 +394,139 @@
     }
   }
 
+  /* ── MOBILE: vertical stacked cards so images are fully visible ── */
   @media (max-width: 768px) {
     .cont {
-      padding: 30px 20px;
+      height: auto;
+      padding: 0;
+      overflow: visible;
+      clip-path: none;
+      transform: none;
     }
-    .el__bg {
-      width: calc(100vw - 40px);
+
+    .cont__inner {
+      position: static;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
     }
+
+    /* reset ALL nth-child horizontal transforms */
+    .el,
+    .el:nth-child(1),
+    .el:nth-child(2),
+    .el:nth-child(3),
+    .el:nth-child(4),
+    .el:nth-child(5) {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      transform: none !important;
+      transform-origin: center center !important;
+      transition: height 0.5s ease, opacity 0.3s ease;
+      opacity: 1 !important;
+    }
+
+    /* expanded panel on mobile */
+    .el.s--active {
+      height: 90vw;
+      z-index: 1;
+    }
+
+    /* make overflow fill the card */
+    .el__overflow {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .el__inner {
+      position: absolute;
+      inset: 0;
+      transform: none !important;
+    }
+
+    /* bg element fills card fully */
+    .el__bg,
+    .el:nth-child(1) .el__bg,
+    .el:nth-child(2) .el__bg,
+    .el:nth-child(3) .el__bg,
+    .el:nth-child(4) .el__bg,
+    .el:nth-child(5) .el__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transform: none !important;
+      transition: none;
+    }
+
+    /* background image fills the card */
+    .el__bg:before {
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+      transform: none !important;
+    }
+
+    .cont.s--inactive .el__bg:before {
+      transform: none !important;
+    }
+
+    .el.s--active .el__bg:before {
+      transform: none !important;
+    }
+
+    /* slide-in from bottom no longer applies on mobile */
+    .cont.s--inactive .el__inner {
+      transform: none !important;
+    }
+
+    /* hide the big number index on mobile */
+    .el__index {
+      display: none;
+    }
+
+    /* keep heading overlay readable */
+    .el__preview-cont {
+      align-items: flex-end;
+      padding: 16px 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%);
+    }
+
     .el__heading {
       font-size: 13px;
+      letter-spacing: 2px;
     }
+
     .el__text {
       font-size: 26px;
+    }
+
+    /* close btn stays top-right */
+    .el__close-btn {
+      right: 10px;
+      top: 10px;
     }
   }
 
   @media (max-width: 480px) {
-    .cont {
-      padding: 20px 12px;
+    .el,
+    .el:nth-child(1),
+    .el:nth-child(2),
+    .el:nth-child(3),
+    .el:nth-child(4),
+    .el:nth-child(5) {
+      height: 180px;
     }
-    .el__bg {
-      width: calc(100vw - 24px);
+
+    .el.s--active {
+      height: 80vw;
     }
+
     .el__heading {
       font-size: 11px;
     }
